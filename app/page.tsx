@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 const benefits = [
@@ -299,10 +301,10 @@ function LessonFlow() {
             <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-[#ff2fa3]">
               Как это выглядит
             </p>
-            <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl text-[#351827]">
+            <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl text-white">
               Не урок. А твое личное English-пространство.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#684459]">
+            <p className=”mt-6 text-lg leading-8 text-white/70”>
               Каждое занятие строится вокруг твоего уровня, интересов и реальных
               ситуаций. Учим не “для галочки”, а чтобы ты могла говорить.
             </p>
@@ -340,8 +342,8 @@ function LessonFlow() {
                     {num}
                   </div>
                   <div>
-                    <h3 className="text-2xl text-[#351827]">{title}</h3>
-                    <p className="mt-1 text-[#684459]">{text}</p>
+                    <h3 className="text-2xl text-white">{title}</h3>
+                    <p className="mt-1 text-white/70">{text}</p>
                   </div>
                 </div>
               </div>
