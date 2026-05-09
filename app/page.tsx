@@ -118,7 +118,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen px-5 py-8 md:px-10">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,#ffb6e6_0,transparent_30%),radial-gradient(circle_at_80%_10%,#fff06a_0,transparent_22%),radial-gradient(circle_at_70%_80%,#ff78c8_0,transparent_30%)]" />
-      <div className="absolute left-4 top-24 rotate-[-12deg] rounded-full bg-white/70 px-5 py-2 text-sm font-black shadow-xl backdrop-blur">
+      <div className="absolute left-4 top-24 hidden rotate-[-12deg] rounded-full bg-white/70 px-5 py-2 text-sm font-black shadow-xl backdrop-blur sm:block">
         girls only ✦ Kazan / online
       </div>
       <div className="absolute right-8 top-28 hidden rotate-[10deg] rounded-3xl border-4 border-white bg-[#ff4fb8] px-5 py-3 text-lg font-black text-white shadow-2xl md:block">
@@ -243,7 +243,7 @@ function StickerMarquee() {
   return (
     <section className="border-y-4 border-[#351827] bg-[#fff06a] py-4">
       <div className="flex animate-marquee gap-8 whitespace-nowrap text-2xl font-black tracking-tight text-[#351827]">
-        {Array.from({ length: 2 }).map((_, i) => (
+        {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="flex gap-8">
             <span>🎀 Английский без стресса</span>
             <span>💖 Speaking confidence</span>
