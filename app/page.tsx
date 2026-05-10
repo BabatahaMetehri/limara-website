@@ -210,6 +210,8 @@ function Hero() {
           </button>
           <a
             href="https://t.me/gzonthemove"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-[#351827] px-5 py-3 text-sm font-black text-white shadow-lg transition hover:scale-105"
           >
             Написать «Демо»
@@ -285,6 +287,8 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href="https://t.me/gzonthemove"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group rounded-full bg-[#ff2fa3] px-8 py-5 text-center text-lg font-black text-white shadow-[0_18px_0_#351827] transition hover:-translate-y-1 hover:shadow-[0_22px_0_#351827]"
             >
               Хочу демо-урок 💖
@@ -585,6 +589,8 @@ function Pricing() {
 
               <a
                 href="https://t.me/gzonthemove"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-7 block rounded-full px-5 py-4 text-center font-black transition hover:scale-105 ${
                   item.highlight
                     ? "bg-white text-[#351827]"
@@ -698,6 +704,8 @@ function FinalCTA() {
             </p>
             <a
               href="https://t.me/gzonthemove"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-block rounded-full bg-[#ff2fa3] px-9 py-5 text-lg font-black text-white shadow-[0_12px_0_#fff06a] transition hover:-translate-y-1"
             >
               Написать «Демо» 💌
