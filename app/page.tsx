@@ -131,6 +131,8 @@ export default function Home() {
 }
 
 function Hero() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen px-5 py-8 md:px-10">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,#ffb6e6_0,transparent_30%),radial-gradient(circle_at_80%_10%,#fff06a_0,transparent_22%),radial-gradient(circle_at_70%_80%,#ff78c8_0,transparent_30%)]" />
@@ -185,13 +187,74 @@ function Hero() {
           </a>
         </div>
 
-        <a
-          href="https://t.me/gzonthemove"
-          className="rounded-full bg-[#351827] px-5 py-3 text-sm font-black text-white shadow-lg transition hover:scale-105"
-        >
-          Написать «Демо»
-        </a>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setMenuOpen((o) => !o)}
+            className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#351827] bg-white/80 md:hidden"
+            aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+          >
+            {menuOpen ? (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+          <a
+            href="https://t.me/gzonthemove"
+            className="rounded-full bg-[#351827] px-5 py-3 text-sm font-black text-white shadow-lg transition hover:scale-105"
+          >
+            Написать «Демо»
+          </a>
+        </div>
       </nav>
+
+      {menuOpen && (
+        <div className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl border border-white/60 bg-white/80 px-5 py-4 shadow-xl backdrop-blur-xl md:hidden">
+          <div className="flex flex-col gap-1">
+            {[
+              ["#benefits", "Почему я"],
+              ["#certificates", "Сертификаты"],
+              ["#pricing", "Тарифы"],
+              ["#reviews", "Отзывы"],
+            ].map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-2xl px-4 py-3 text-lg font-black transition hover:bg-[#ffd6ef] hover:text-[#ff2fa3]"
+              >
+                {label}
+              </a>
+            ))}
+            <div className="mt-3 flex gap-3 border-t border-[#351827]/10 pt-3">
+              <a
+                href="https://t.me/gzonthemove"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ff2fa3] px-4 py-3 font-black text-white transition hover:scale-105"
+              >
+                <TelegramIcon className="h-5 w-5" />
+                Telegram
+              </a>
+              <a
+                href="https://www.instagram.com/laraatalks/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#351827] px-4 py-3 font-black text-white transition hover:scale-105"
+              >
+                <InstagramIcon className="h-5 w-5" />
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 pb-16 pt-16 md:grid-cols-2 md:pt-24">
         <div>
