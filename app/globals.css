@@ -34,3 +34,12 @@ h3,
     transform: translateX(-50%);
   }
 }
+
+.faq-chevron {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+details[open] .faq-chevron {
+  transform: rotate(180deg);
+}

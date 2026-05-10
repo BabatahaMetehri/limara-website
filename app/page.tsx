@@ -664,9 +664,10 @@ function FAQ() {
               key={item.q}
               className="group rounded-[2rem] border-4 border-white bg-white p-6 shadow-lg"
             >
-              <summary className="cursor-pointer list-none text-xl font-black">
+              <summary className="flex cursor-pointer list-none items-center text-xl font-black">
                 <span className="mr-2 text-[#ff2fa3]">✦</span>
                 {item.q}
+                <span className="faq-chevron ml-auto text-[#ff2fa3]">▼</span>
               </summary>
               <p className="mt-4 leading-8 text-[#684459]">{item.a}</p>
             </details>
