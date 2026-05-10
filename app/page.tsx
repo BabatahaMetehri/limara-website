@@ -702,12 +702,22 @@ function FinalCTA() {
             </a>
           </div>
 
-          <div className="rounded-[2rem] bg-white/10 p-6 backdrop-blur">
-            <p className="text-6xl">🎀</p>
-            <p className="mt-5 text-2xl font-black">Lara English</p>
-            <p className="mt-2 text-white/70">
-              Преподаватель английского языка для девушек. Казань / online.
-            </p>
+          <div className="overflow-hidden rounded-[2rem] bg-white/10 backdrop-blur">
+            <div className="relative aspect-[3/4] w-full">
+              <Image
+                src="/images/lara-2.jpg"
+                alt="Lara — преподаватель английского"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+            <div className="p-6">
+              <p className="text-2xl font-black">Lara English</p>
+              <p className="mt-2 text-white/70">
+                Преподаватель английского языка для девушек. Казань / online.
+              </p>
+            </div>
           </div>
         </div>
       </div>
