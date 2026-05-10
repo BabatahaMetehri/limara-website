@@ -586,7 +586,7 @@ function Pricing() {
               <p className="mt-4 text-sm font-bold opacity-80">{item.period}</p>
               <p className="mt-1 text-4xl font-black">{item.price}</p>
               <p
-                className={`mt-5 leading-7 ${item.highlight ? "text-white/80" : "text-[#684459]"}`}
+                className={`mt-5 flex-1 leading-7 ${item.highlight ? "text-white/80" : "text-[#684459]"}`}
               >
                 {item.desc}
               </p>
@@ -595,7 +595,7 @@ function Pricing() {
                 href={`https://t.me/gzonthemove?text=${encodeURIComponent(item.message)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-auto block rounded-full px-5 py-4 text-center font-black transition hover:scale-105 ${
+                className={`mt-5 block rounded-full px-5 py-4 text-center font-black transition hover:scale-105 ${
                   item.highlight
                     ? "bg-white text-[#351827]"
                     : "bg-[#351827] text-white"
