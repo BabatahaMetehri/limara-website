@@ -63,18 +63,22 @@ const prices = [
 const testimonials = [
   {
     name: "EVA",
+    photo: "/images/eva.jpg",
     text: "Очень нравится тичер! Уроки расслабленные, но при этом много информации. Все адаптировано под меня, мои жизненные ситуации и переживания. С обычным серьезным подходом я бы давно забросила.",
   },
   {
     name: "ADEL (identifies as a girl ig ✌️)",
+    photo: "/images/adel.jpg",
     text: "Хороший педагог. Объясняет все понятно и доходчиво. Занимаемся несколько недель, чувствую, как сильно импрувнулась за это время. Всем советую! (no one asked lil bro)",
   },
   {
     name: "LIKA",
+    photo: "/images/lika.jpg",
     text: "Очень классный преподаватель. Нет занудного натаскивания по учебникам. Изучение акцентируется на касающихся меня темах, поэтому материал лучше закрепляется.",
   },
   {
     name: "ANNA",
+    photo: "/images/anna.jpg",
     text: "Спасибо тебе большое. Ты самый лучший учитель английского, мне невероятно повезло заниматься именно с тобой.",
   },
 ];
@@ -618,8 +622,14 @@ function Testimonials() {
               }`}
             >
               <div className="mb-4 flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-[#ff2fa3] font-black text-white">
-                  {item.name[0]}
+                <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                  <Image
+                    src={item.photo}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
                 </div>
                 <div>
                   <p className="font-black">{item.name}</p>
