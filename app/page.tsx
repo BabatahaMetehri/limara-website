@@ -338,7 +338,7 @@ function LessonFlow() {
             <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl text-white">
               Не урок. А твое личное English-пространство.
             </h2>
-            <p className=”mt-6 text-lg leading-8 text-white/70”>
+            <p className="mt-6 text-lg leading-8 text-white/70">
               Каждое занятие строится вокруг твоего уровня, интересов и реальных
               ситуаций. Учим не “для галочки”, а чтобы ты могла говорить.
             </p>
