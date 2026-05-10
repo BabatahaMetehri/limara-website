@@ -130,6 +130,7 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <FinalCTA />
+      <Footer />
     </main>
   );
 }
@@ -723,5 +724,42 @@ function FinalCTA() {
         </div>
       </div>
     </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="bg-[#351827] px-5 py-8 text-white md:px-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="font-black">
+            Lara English © {new Date().getFullYear()}
+          </p>
+          <p className="mt-1 text-sm text-white/60">
+            Английский для девушек · Казань / online
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <a
+            href="https://t.me/gzonthemove"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full bg-[#ff2fa3] px-4 py-2 text-sm font-black transition hover:scale-105"
+          >
+            <TelegramIcon className="h-4 w-4" />
+            Telegram
+          </a>
+          <a
+            href="https://www.instagram.com/laraatalks/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full bg-[#ff2fa3] px-4 py-2 text-sm font-black transition hover:scale-105"
+          >
+            <InstagramIcon className="h-4 w-4" />
+            Instagram
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
