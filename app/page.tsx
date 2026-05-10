@@ -33,6 +33,7 @@ const prices = [
     period: "8 занятий",
     desc: "Персональные уроки под твой уровень, цели и интересы.",
     highlight: true,
+    message: "Хочу записаться на индивидуальные занятия 💖",
   },
   {
     name: "Speaking Club",
@@ -41,6 +42,7 @@ const prices = [
     period: "4 занятия",
     desc: "Практическое погружение в язык на самые spicy темы.",
     highlight: false,
+    message: "Хочу записаться в Speaking Club 💖",
   },
   {
     name: "Self-study курс",
@@ -49,6 +51,7 @@ const prices = [
     period: "15 тем",
     desc: "Базовые темы для самостоятельного старта и уверенной базы.",
     highlight: false,
+    message: "Хочу купить Self-study курс 💖",
   },
   {
     name: "Enhance Your Vocabulary",
@@ -57,6 +60,7 @@ const prices = [
     period: "10 тем",
     desc: "Up-to-date topics for girls: пополняем словарный запас красиво и актуально.",
     highlight: false,
+    message: "Хочу купить курс Enhance Your Vocabulary 💖",
   },
 ];
 
@@ -399,20 +403,20 @@ function Benefits() {
 
 function LessonFlow() {
   return (
-    <section className="relative px-5 py-24 md:px-10">
-      <div className="absolute inset-x-0 top-0 -z-10 h-full skew-y-3 bg-[#351827]" />
-      <div className="mx-auto max-w-7xl text-white">
+    <section className="relative overflow-hidden px-5 py-24 md:px-10">
+      <div className="absolute inset-0 skew-y-3 bg-[#ffd6ef]" />
+      <div className="relative mx-auto max-w-7xl text-[#351827]">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
           <div>
             <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-[#ff2fa3]">
               Как это выглядит
             </p>
-            <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl text-white">
+            <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl text-[#351827]">
               Не урок. А твое личное English-пространство.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-white/70">
+            <p className="mt-6 text-lg leading-8 text-[#684459]">
               Каждое занятие строится вокруг твоего уровня, интересов и реальных
-              ситуаций. Учим не “для галочки”, а чтобы ты могла говорить.
+              ситуаций. Учим не “для галочки", а чтобы ты могла говорить.
             </p>
           </div>
 
@@ -441,15 +445,15 @@ function LessonFlow() {
             ].map(([num, title, text]) => (
               <div
                 key={num}
-                className="rounded-[2rem] border border-white/15 bg-white/10 p-5 backdrop-blur-xl"
+                className="rounded-[2rem] border border-white bg-white/60 p-5"
               >
                 <div className="flex gap-5">
-                  <div className="text-4xl font-black text-[#ff78c8]">
+                  <div className="text-4xl font-black text-[#ff2fa3]">
                     {num}
                   </div>
                   <div>
-                    <h3 className="text-2xl text-white">{title}</h3>
-                    <p className="mt-1 text-white/70">{text}</p>
+                    <h3 className="text-2xl text-[#351827]">{title}</h3>
+                    <p className="mt-1 text-[#684459]">{text}</p>
                   </div>
                 </div>
               </div>
@@ -475,7 +479,7 @@ function Certificates() {
             </h2>
           </div>
           <p className="max-w-md text-lg leading-8 text-[#684459]">
-            Лара не просто “милая teacher”, она реально квалифицированный
+            Лара не просто “милая teacher", она реально квалифицированный
             преподаватель.
           </p>
         </div>
@@ -556,7 +560,7 @@ function Pricing() {
           {prices.map((item) => (
             <div
               key={item.name}
-              className={`relative rounded-[2rem] border-4 p-6 shadow-xl transition hover:-translate-y-2 ${
+              className={`relative flex flex-col rounded-[2rem] border-4 p-6 shadow-xl transition hover:-translate-y-2 ${
                 item.highlight
                   ? "border-[#351827] bg-[#ff2fa3] text-white shadow-[0_18px_0_#351827]"
                   : "border-white bg-white"
@@ -588,10 +592,10 @@ function Pricing() {
               </p>
 
               <a
-                href="https://t.me/gzonthemove"
+                href={`https://t.me/gzonthemove?text=${encodeURIComponent(item.message)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-7 block rounded-full px-5 py-4 text-center font-black transition hover:scale-105 ${
+                className={`mt-auto block rounded-full px-5 py-4 text-center font-black transition hover:scale-105 ${
                   item.highlight
                     ? "bg-white text-[#351827]"
                     : "bg-[#351827] text-white"
