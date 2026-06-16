@@ -387,9 +387,14 @@ function Hero() {
       {/* Nav */}
       <nav className="rise mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-white/55 px-4 py-3 shadow-[0_12px_40px_-20px_rgba(40,37,47,0.5)] backdrop-blur-xl md:px-5">
         <div className="flex items-center gap-3">
-          <div className="grid h-11 w-11 place-items-center rounded-full bg-ink text-lg font-display font-semibold text-cream shadow-md">
-            L
-          </div>
+          <Image
+            src="/images/limara_logo_mark.png"
+            alt="Lara English"
+            width={504}
+            height={574}
+            priority
+            className="h-12 w-auto"
+          />
           <div className="leading-tight">
             <p className="font-display text-lg font-semibold leading-none">
               Lara English
@@ -582,7 +587,7 @@ function Hero() {
         <div className="relative mx-auto w-full max-w-md [perspective:1200px]">
           {/* floating decorative chips with parallax */}
           <div
-            className="absolute -left-6 top-10 z-20 hidden rounded-2xl border border-white/80 bg-white/85 px-4 py-3 text-sm shadow-xl backdrop-blur sm:block"
+            className="absolute left-1 top-6 z-20 rounded-2xl border border-white/80 bg-white/85 px-3.5 py-2.5 text-xs shadow-xl backdrop-blur sm:-left-6 sm:top-10 sm:px-4 sm:py-3 sm:text-sm"
             style={{
               transform:
                 "translate(calc(var(--mx, 0) * -34px), calc(var(--my, 0) * -34px))",
@@ -594,7 +599,7 @@ function Hero() {
           </div>
 
           <div
-            className="absolute -right-4 bottom-24 z-20 hidden rotate-3 rounded-2xl border border-white/80 bg-blush-deep px-4 py-3 text-sm font-semibold text-white shadow-xl sm:block"
+            className="absolute right-1 bottom-20 z-20 rotate-3 rounded-2xl border border-white/80 bg-blush-deep px-3.5 py-2.5 text-xs font-semibold text-white shadow-xl sm:-right-4 sm:bottom-24 sm:px-4 sm:py-3 sm:text-sm"
             style={{
               transform:
                 "rotate(3deg) translate(calc(var(--mx, 0) * 30px), calc(var(--my, 0) * 30px))",
@@ -1257,9 +1262,13 @@ function Footer() {
     <footer className="border-t border-ink/10 px-5 py-10 md:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <div className="grid h-11 w-11 place-items-center rounded-full bg-ink font-display text-lg font-semibold text-cream">
-            L
-          </div>
+          <Image
+            src="/images/limara_logo_mark.png"
+            alt="Lara English"
+            width={504}
+            height={574}
+            className="h-11 w-auto"
+          />
           <div>
             <p className="font-display text-lg font-semibold">
               Lara English © {new Date().getFullYear()}

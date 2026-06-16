@@ -161,6 +161,13 @@ h3 {
   animation: spinSlow 30s linear infinite;
 }
 
+/* Marquee runs faster on small screens so it doesn't feel sluggish */
+@media (max-width: 640px) {
+  .animate-marquee {
+    animation-duration: 16s;
+  }
+}
+
 /* --- 3D flip cards --- */
 .flip {
   perspective: 1800px;
