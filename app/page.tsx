@@ -936,6 +936,40 @@ function ExamPrep() {
 /* ------------------------------------------------------------------ */
 
 function Certificates() {
+  const certs: Cert[] = [
+    {
+      num: "01",
+      title: "Международный сертификат преподавателя английского",
+      subtitle: "Аккредитация Cambridge",
+      image: "/images/cert-cambridge.jpg",
+      w: 2480,
+      h: 3509,
+    },
+    {
+      num: "02",
+      title: "Дополнительное обучение",
+      subtitle: "Методики нейропедагогики",
+      image: "/images/cert-2.jpg",
+      w: 905,
+      h: 1280,
+    },
+  ];
+  const [openCert, setOpenCert] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (openCert === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenCert(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [openCert]);
+
   return (
     <section id="certificates" className="px-5 py-24 md:px-10">
       <div className="mx-auto max-w-7xl">
@@ -956,45 +990,69 @@ function Certificates() {
         </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <CertificateCard
-            num="01"
-            title="Международный сертификат преподавателя английского"
-            subtitle="Аккредитация Cambridge"
-            image="/images/cert-cambridge.jpg"
-            delay={0}
-          />
-          <CertificateCard
-            num="02"
-            title="Дополнительное обучение"
-            subtitle="Методики нейропедагогики"
-            image="/images/cert-2.jpg"
-            delay={120}
-          />
+          {certs.map((cert, i) => (
+            <CertificateCard
+              key={cert.num}
+              cert={cert}
+              delay={i * 120}
+              onOpen={() => setOpenCert(i)}
+            />
+          ))}
         </div>
       </div>
+
+      {openCert !== null && (
+        <CertLightbox cert={certs[openCert]} onClose={() => setOpenCert(null)} />
+      )}
     </section>
   );
 }
 
-function CertificateCard({
-  num,
-  title,
-  subtitle,
-  image,
-  delay,
-}: {
+type Cert = {
   num: string;
   title: string;
   subtitle: string;
   image: string;
+  w: number;
+  h: number;
+};
+
+function ExpandIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.9}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M8 4H5a1 1 0 0 0-1 1v3M16 4h3a1 1 0 0 1 1 1v3M8 20H5a1 1 0 0 1-1-1v-3M16 20h3a1 1 0 0 1 1-1v-3" />
+    </svg>
+  );
+}
+
+function CertificateCard({
+  cert,
+  delay,
+  onOpen,
+}: {
+  cert: Cert;
   delay: number;
+  onOpen: () => void;
 }) {
   return (
     <Reveal delay={delay}>
-      <div className="group overflow-hidden rounded-[2.5rem] border border-ink/5 bg-cream-2 p-4 shadow-[0_24px_60px_-32px_rgba(40,37,47,0.5)]">
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`Открыть сертификат полностью: ${cert.title}`}
+        className="group block w-full overflow-hidden rounded-[2.5rem] border border-ink/5 bg-cream-2 p-4 text-left shadow-[0_24px_60px_-32px_rgba(40,37,47,0.5)] transition hover:-translate-y-1 hover:shadow-[0_30px_70px_-32px_rgba(40,37,47,0.55)]"
+      >
         <div className="mb-4 flex items-center justify-between">
           <div className="grid h-11 w-11 place-items-center rounded-full bg-ink font-display text-lg font-semibold text-cream">
-            {num}
+            {cert.num}
           </div>
           <div className="flex items-center gap-1.5 rounded-full bg-azure-soft px-4 py-2 text-sm font-semibold text-azure-ink">
             <CheckIcon className="h-4 w-4" /> подтверждено
@@ -1003,21 +1061,78 @@ function CertificateCard({
 
         <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] bg-azure-soft">
           <Image
-            src={image}
-            alt={title}
+            src={cert.image}
+            alt={cert.title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition duration-700 group-hover:scale-105"
+            className="object-cover object-top transition duration-700 group-hover:scale-105"
             unoptimized
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/5 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+          <span className="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-ink opacity-0 shadow-lg backdrop-blur transition duration-300 group-hover:opacity-100">
+            <ExpandIcon className="h-4 w-4" /> Открыть полностью
+          </span>
+          <span className="pointer-events-none absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/95 text-ink shadow-md backdrop-blur md:hidden">
+            <ExpandIcon className="h-4 w-4" />
+          </span>
         </div>
 
         <div className="p-4">
-          <h3 className="text-2xl leading-tight">{title}</h3>
-          <p className="mt-2 text-ink-soft">{subtitle}</p>
+          <h3 className="text-2xl leading-tight">{cert.title}</h3>
+          <p className="mt-2 text-ink-soft">{cert.subtitle}</p>
+        </div>
+      </button>
+    </Reveal>
+  );
+}
+
+function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
+  return (
+    <div
+      className="lb-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-ink/85 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={cert.title}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Закрыть"
+        className="absolute right-4 top-4 z-10 grid h-12 w-12 place-items-center rounded-full bg-white/90 text-ink shadow-lg transition hover:scale-105"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+        >
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div
+        className="lb-panel flex max-h-[90vh] w-full max-w-3xl flex-col items-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src={cert.image}
+          alt={cert.title}
+          width={cert.w}
+          height={cert.h}
+          priority
+          unoptimized
+          className="h-auto w-auto max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
+        />
+        <div className="mt-4 max-w-xl text-center text-cream-2">
+          <p className="font-display text-xl font-semibold">{cert.title}</p>
+          <p className="mt-1 text-sm text-cream-2/70">{cert.subtitle}</p>
         </div>
       </div>
-    </Reveal>
+    </div>
   );
 }
 

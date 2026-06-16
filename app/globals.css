@@ -223,6 +223,32 @@ h3 {
   animation: shimmer 0.95s ease;
 }
 
+/* --- Lightbox (certificate viewer) --- */
+@keyframes lbFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lbZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.lb-backdrop {
+  animation: lbFade 0.25s ease forwards;
+}
+.lb-panel {
+  animation: lbZoom 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 /* --- Film grain overlay (adds depth across the page) --- */
 .grain::before {
   content: "";
