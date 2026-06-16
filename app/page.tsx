@@ -388,10 +388,10 @@ function Hero() {
       <nav className="rise mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-white/55 px-4 py-3 shadow-[0_12px_40px_-20px_rgba(40,37,47,0.5)] backdrop-blur-xl md:px-5">
         <div className="flex items-center gap-3">
           <Image
-            src="/images/limara_logo_mark.png"
+            src="/images/limara_logo_le.png"
             alt="Lara English"
-            width={504}
-            height={574}
+            width={512}
+            height={495}
             priority
             className="h-12 w-auto"
           />
@@ -1263,10 +1263,10 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
           <Image
-            src="/images/limara_logo_mark.png"
+            src="/images/limara_logo_le.png"
             alt="Lara English"
-            width={504}
-            height={574}
+            width={512}
+            height={495}
             className="h-11 w-auto"
           />
           <div>
