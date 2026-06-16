@@ -303,7 +303,7 @@ export default function Home() {
       <Marquee />
       <Benefits />
       <LessonFlow />
-      <ExamPrep />
+      {/* <ExamPrep /> */}
       <Certificates />
       <Pricing />
       <Testimonials />
@@ -376,7 +376,7 @@ function Hero() {
 
   const navLinks: [string, string][] = [
     ["#benefits", "Почему я"],
-    ["#exams", "Экзамены"],
+    // ["#exams", "Экзамены"],
     ["#certificates", "Сертификаты"],
     ["#pricing", "Тарифы"],
     ["#reviews", "Отзывы"],
