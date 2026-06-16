@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Cormorant } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${manrope.variable} ${cormorant.variable}`}>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-NMS790N544" />
     </html>
   );
 }
