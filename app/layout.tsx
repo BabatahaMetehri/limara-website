@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Unbounded } from "next/font/google";
+import { Manrope, Cormorant } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -7,15 +7,17 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-const unbounded = Unbounded({
+const cormorant = Cormorant({
   subsets: ["cyrillic", "latin"],
-  variable: "--font-unbounded",
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
   title: "Lara English — английский для девушек",
   description:
-    "Онлайн-занятия английским для девушек. Пробный урок за 300 ₽. Казань и онлайн.",
+    "Уютные онлайн-занятия английским для девушек. Пробный урок за 300 ₽. Отдельное направление — очная подготовка к экзаменам в Казани.",
 };
 
 export default function RootLayout({
@@ -25,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${manrope.variable} ${unbounded.variable}`}>
+      <body className={`${manrope.variable} ${cormorant.variable}`}>
         {children}
       </body>
     </html>

@@ -1,45 +1,256 @@
 @import "tailwindcss";
 
 @theme {
-  /* 1. The animation from your previous setup */
-  --animate-marquee: marquee 24s linear infinite;
+  /* --- Motion tokens --- */
+  --animate-marquee: marquee 38s linear infinite;
 
-  /* 2. Creating Tailwind utility classes (e.g., "font-display") from your layout.tsx variables */
-  --font-body: var(--font-manrope), sans-serif;
-  --font-display: var(--font-unbounded), var(--font-manrope), sans-serif;
+  /* --- Typography tokens (wired to layout.tsx CSS variables) --- */
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+
+  /* --- Palette: warm beige paper, baby blue structure, blush accent --- */
+  --color-cream: #f4ecdf;
+  --color-cream-2: #fbf6ee;
+  --color-sand: #ecdcc4;
+  --color-azure-soft: #e2edf4;
+  --color-azure: #c4dfee;
+  --color-azure-mid: #93c4e4;
+  --color-azure-deep: #4d8fc4;
+  --color-azure-ink: #2c597f;
+  --color-blush-soft: #f8d6e2;
+  --color-blush: #f1aac6;
+  --color-blush-deep: #df6699;
+  --color-ink: #28252f;
+  --color-ink-soft: #6a6472;
+  --color-honey: #e7c385;
 }
 
-/* --- Base HTML Styles --- */
+/* --- Base --- */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
-h3,
-.font-black {
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.font-display {
   font-family: var(--font-display);
 }
 
-/* --- Animations --- */
+::selection {
+  background: var(--color-blush-deep);
+  color: #fff;
+}
+
+/* --- Keyframes --- */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-33.333%);
   }
 }
 
-.faq-chevron {
-  display: inline-block;
-  transition: transform 0.2s ease;
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
+@keyframes floatySlow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(2.5deg);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(26px, -22px) scale(1.06);
+  }
+  66% {
+    transform: translate(-20px, 16px) scale(0.96);
+  }
+}
+
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-160%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* --- Hero load entrance --- */
+.rise {
+  opacity: 0;
+  animation: riseIn 1s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
+}
+
+/* --- Scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.985);
+  transition:
+    opacity 0.85s cubic-bezier(0.2, 0.75, 0.25, 1),
+    transform 0.85s cubic-bezier(0.2, 0.75, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Decorative animation utilities --- */
+.anim-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+.anim-floaty-slow {
+  animation: floatySlow 9s ease-in-out infinite;
+}
+.anim-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+.anim-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+/* --- 3D flip cards --- */
+.flip {
+  perspective: 1800px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+@media (hover: hover) and (pointer: fine) {
+  .flip:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* --- Button sheen sweep --- */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: translateX(-160%) skewX(-18deg);
+  pointer-events: none;
+}
+.sheen:hover::after {
+  animation: shimmer 0.95s ease;
+}
+
+/* --- Film grain overlay (adds depth across the page) --- */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- FAQ chevron --- */
+.faq-chevron {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
 details[open] .faq-chevron {
   transform: rotate(180deg);
+}
+
+/* --- Accessibility: respect reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .flip:hover .flip-inner {
+    transform: none;
+  }
 }
