@@ -615,7 +615,7 @@ function Hero() {
               <div className="overflow-hidden rounded-[2rem] bg-azure-mid">
                 <Image
                   src="/images/lara-hero.jpg"
-                  alt="Лимара — преподаватель английского языка"
+                  alt="Лара — преподаватель английского языка"
                   width={900}
                   height={900}
                   className="aspect-square object-cover"
@@ -629,7 +629,7 @@ function Hero() {
           {/* signature plate */}
           <div className="absolute -bottom-7 left-4 z-20 rotate-[-4deg] rounded-2xl border border-white/80 bg-white/90 px-5 py-3 shadow-xl backdrop-blur">
             <p className="font-display text-base font-semibold text-blush-deep">
-              Лимара Мустафаева
+              Lara English
             </p>
             <p className="text-sm text-ink-soft">преподаватель английского</p>
           </div>
@@ -792,11 +792,7 @@ function Benefits() {
 
 function LessonFlow() {
   const steps: [string, string, string][] = [
-    [
-      "01",
-      "Пишешь «Демо»",
-      "Лимара узнаёт твой уровень, цель и что тебе важно.",
-    ],
+    ["01", "Пишешь «Демо»", "Лара узнаёт твой уровень, цель и что тебе важно."],
     [
       "02",
       "Пробный урок",
@@ -895,7 +891,7 @@ function ExamPrep() {
                   Отдельное направление для школьниц: системная подготовка к
                   ОГЭ, ЕГЭ и выпускным экзаменам по английскому. Это
                   единственный формат, который проходит очно — в Казани, где
-                  живёт Лимара.
+                  живёт Лара.
                 </p>
 
                 <a
@@ -949,9 +945,8 @@ function Certificates() {
             </h2>
           </div>
           <p className="max-w-md text-lg leading-8 text-ink-soft">
-            Лимара — квалифицированный преподаватель с международным
-            сертификатом Cambridge и дополнительным обучением в области
-            нейропедагогики.
+            Лара — квалифицированный преподаватель с международным сертификатом
+            Cambridge и дополнительным обучением в области нейропедагогики.
           </p>
         </Reveal>
 
@@ -1212,7 +1207,7 @@ function FinalCTA() {
                 <span className="italic text-blush">увереннее</span> уже сейчас
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                Пробный урок — 300 ₽. Лимара поможет понять твой уровень,
+                Пробный урок — 300 ₽. Лара поможет понять твой уровень,
                 подобрать формат и показать, что английский может быть не
                 страшным, а очень твоим.
               </p>
@@ -1231,7 +1226,7 @@ function FinalCTA() {
               <div className="relative aspect-[3/4] w-full">
                 <Image
                   src="/images/lara-2.jpg"
-                  alt="Лимара — преподаватель английского языка"
+                  alt="Лара — преподаватель английского языка"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
@@ -1240,7 +1235,7 @@ function FinalCTA() {
               </div>
               <div className="p-6">
                 <p className="font-display text-2xl font-semibold">
-                  Лимара Мустафаева
+                  Lara English
                 </p>
                 <p className="mt-2 text-white/70">
                   Преподаватель английского для девушек. Онлайн.
