@@ -634,7 +634,7 @@ function Hero() {
           {/* signature plate */}
           <div className="absolute -bottom-7 left-4 z-20 rotate-[-4deg] rounded-2xl border border-white/80 bg-white/90 px-5 py-3 shadow-xl backdrop-blur">
             <p className="font-display text-base font-semibold text-blush-deep">
-              Lara English
+              Lara
             </p>
             <p className="text-sm text-ink-soft">преподаватель английского</p>
           </div>
@@ -1002,7 +1002,10 @@ function Certificates() {
       </div>
 
       {openCert !== null && (
-        <CertLightbox cert={certs[openCert]} onClose={() => setOpenCert(null)} />
+        <CertLightbox
+          cert={certs[openCert]}
+          onClose={() => setOpenCert(null)}
+        />
       )}
     </section>
   );
