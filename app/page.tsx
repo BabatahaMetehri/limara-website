@@ -797,7 +797,11 @@ function Benefits() {
 
 function LessonFlow() {
   const steps: [string, string, string][] = [
-    ["01", "Пишешь «Демо»", "Лара узнаёт твой уровень, цель и что тебе важно."],
+    [
+      "01",
+      "Пишешь «Демо»",
+      "Я помогу определить твой уровень, цели и то, что важно именно тебе.",
+    ],
     [
       "02",
       "Пробный урок",
@@ -984,8 +988,9 @@ function Certificates() {
             </h2>
           </div>
           <p className="max-w-md text-lg leading-8 text-ink-soft">
-            Лара - квалифицированный преподаватель с международным сертификатом
-            Cambridge и дополнительным обучением в области нейропедагогики.
+            Я - квалифицированный преподаватель с международным сертификатом
+            Cambridge. Также я прошла дополнительное обучение в области
+            нейропедагогики.
           </p>
         </Reveal>
 
@@ -1356,9 +1361,7 @@ function FinalCTA() {
                 />
               </div>
               <div className="p-6">
-                <p className="font-display text-2xl font-semibold">
-                  Lara English
-                </p>
+                <p className="font-display text-2xl font-semibold">Lara</p>
                 <p className="mt-2 text-white/70">
                   Преподаватель английского для девушек. Онлайн.
                 </p>
